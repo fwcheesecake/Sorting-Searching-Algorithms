@@ -64,7 +64,7 @@ public class Main {
                 case 11 -> naturalMergeSort();
                 case 12 -> pancakeSort();
                 case 13 -> pigeonholeSort();
-                case 14 -> quickSort();
+                case 14 -> System.out.println("Working on it"); //quickSort();
                 case 15 -> radixSort();
                 case 16 -> selectionSort();
                 case 17 -> shellSort();

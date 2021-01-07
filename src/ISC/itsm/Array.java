@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Array {
     int tam;
-    int array[];
+    int []array;
 
     public Array(){
         setTam(0);
@@ -19,12 +19,13 @@ public class Array {
     }
 
     public Array(int[] array){
-        setArray(array);
         setTam(array.length);
+        setArray(array);
     }
 
     public void setArray(int[] array){
-        this.array = array;
+        this.array = new int[tam];
+        if (tam >= 0) System.arraycopy(array, 0, this.array, 0, tam);
     }
 
     public void setTam(int tam){
@@ -33,12 +34,6 @@ public class Array {
 
     public int[] getArray(){
         return array;
-    }
-
-    public void mostrar(){
-        System.out.println("Arreglo: ");
-        for(int x : array)
-            System.out.println(x);
     }
 
     public void write() throws IOException{
@@ -51,8 +46,18 @@ public class Array {
         FileWriter wout = new FileWriter(output);
 
         System.out.println(filename + ": ");
-        for(int i = 0; i < tam; i++)
-            wout.write("" + array[i] + "\n");
+        boolean sorted = true;
+        wout.write("" + array[0] + "\n");
+        for(int i = 1; i < tam; i++) {
+            if(array[i - 1] > array[i]) {
+                sorted = false;
+                wout.write("This: " + array[i] + "\n");
+            } else
+                wout.write("" + array[i] + "\n");
+        }
+
+        wout.write((sorted) ? "ORDENADO" : "ALGO PASO");
+
         wout.close();
     }
 

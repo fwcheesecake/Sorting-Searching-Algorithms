@@ -13,8 +13,6 @@ public class TimSort extends Array{
     int MIN_MERGE = 32;
 
     public int minRunLength(int n) {
-        assert n >= 0;
-
         int r = 0;
         while (n >= MIN_MERGE) {
             r |= (n & 1);
@@ -39,12 +37,10 @@ public class TimSort extends Array{
         int len1 = m - l + 1, len2 = r - m;
         int[] left = new int[len1];
         int[] right = new int[len2];
-        for (int x = 0; x < len1; x++) {
+        for (int x = 0; x < len1; x++)
             left[x] = array[l + x];
-        }
-        for (int x = 0; x < len2; x++) {
+        for (int x = 0; x < len2; x++)
             right[x] = array[m + 1 + x];
-        }
 
         int i = 0;
         int j = 0;
