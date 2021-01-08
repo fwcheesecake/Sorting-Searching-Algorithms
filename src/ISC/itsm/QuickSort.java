@@ -7,29 +7,29 @@ public class QuickSort extends Array {
     }
 
     public void ordenar(){
-        quickSort(0, tam);
+        quickSort(0, tam - 1);
     }
 
     public void quickSort(int ini, int fin){
         if(ini < fin){
             int p = partir(ini, fin);
-            quickSort(ini, p);
+            quickSort(ini, p - 1);
             quickSort(p + 1, fin);
         }
     }
 
     public int partir(int ini, int fin){
-        int min = ini;
-        int p = array[tam - 1] ;
+        int min = ini - 1;
+        int p = array[fin];
         for(int j = ini; j < fin; j++){
             if(array[j] < p){
-                swap(min++, j);
+                swap(++min, j);
             }
         }
-        swap(tam - 1, min);
-        return min;
+        swap(fin, min + 1);
+        return min + 1;
     }
-
+    /*
     public int pivot(int ini, int fin){
         int mid = (ini + fin) / 2;
         if((array[ini] > array[mid] && array[ini] < array[fin]) || (array[ini] > array[fin] && array[ini] < array[mid]))
@@ -38,4 +38,5 @@ public class QuickSort extends Array {
             return fin;
         return mid;
     }
+     */
 }

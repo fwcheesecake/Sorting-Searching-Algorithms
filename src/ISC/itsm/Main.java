@@ -64,7 +64,7 @@ public class Main {
                 case 11 -> naturalMergeSort();
                 case 12 -> pancakeSort();
                 case 13 -> pigeonholeSort();
-                case 14 -> System.out.println("Working on it"); //quickSort();
+                case 14 -> quickSort();
                 case 15 -> radixSort();
                 case 16 -> selectionSort();
                 case 17 -> shellSort();
@@ -214,6 +214,7 @@ public class Main {
             if(!input.exists())
                 input.createNewFile();
             sc = new Scanner(new FileInputStream(testcase));
+            //If you want to write input manually you can do it uncommenting the line below and commenting the line above.
             //sc = new Scanner(System.in);
             scFile = new Scanner(new FileInputStream(input));
         } catch(Exception e){
