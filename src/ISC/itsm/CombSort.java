@@ -16,13 +16,13 @@ public class CombSort extends Array {
     public void ordenar(){
         int gap = tam;
         boolean swapped = true;
-        while(gap > 1 || swapped){
+        while(gap != 1 || swapped){
             swapped = false;
             gap = nextGap(gap);
             for(int i = 0; i < tam - gap; i++){
                 if(array[i] > array[i + gap]){
-                    swapped = true;
                     swap(i, i + gap);
+                    swapped = true;
                 }
             }
         }

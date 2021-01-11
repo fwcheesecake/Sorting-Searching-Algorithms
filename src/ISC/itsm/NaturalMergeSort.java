@@ -36,7 +36,6 @@ public class NaturalMergeSort extends Array {
     }
 
     public void merge(int l, int m, int r){
-        System.out.println("L: " + l + ", M: " + m + ", R: " + r);
         int n1 = m - l;
         int n2 = r - n1;
 
@@ -46,9 +45,6 @@ public class NaturalMergeSort extends Array {
         int i = 0, j = 0, k = 0;
         for(; i < n1; i++)
             arr1[i] = array[k++];
-        //System.out.println("Valor de K: " + k);
-        //System.out.println("N1: " + n1);
-        //System.out.println("N2: " + n2);
         for(; j < n2; j++)
             arr2[j] = array[k++];
 
