@@ -6,10 +6,16 @@ public class RecursiveBubbleSort extends Array {
     }
 
     public void ordenar(){
-        recursion(tam, tam - 1);
+        recursion(tam);
     }
 
-    public void recursion(int n, int m){
-
+    public void recursion(int n){
+        if(n == 1)
+            return;
+        moves += stringArray();
+        for(int i = 1; i < n; i++)
+            if(array[i] < array[i -1])
+                swap(i, i - 1);
+        recursion(n - 1);
     }
 }

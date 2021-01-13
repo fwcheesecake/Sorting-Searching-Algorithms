@@ -14,6 +14,7 @@ public class SelectionSort extends Array {
             }
             if(min != i)
                 swap(min, i);
+            moves += stringArray(array, 0, i + 1, false) + stringArray(array, i + 1, tam, true);
         }
     }
 }

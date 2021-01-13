@@ -22,10 +22,10 @@ public class CombSort extends Array {
             for(int i = 0; i < tam - gap; i++){
                 if(array[i] > array[i + gap]){
                     swap(i, i + gap);
+                    moves += "Gap: " + gap + "\t" + stringArray();
                     swapped = true;
                 }
             }
-            moves += "Gap: " + gap + "\t" + stringArray();
         }
     }
 }

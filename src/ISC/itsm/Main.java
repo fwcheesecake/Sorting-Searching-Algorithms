@@ -72,6 +72,7 @@ public class Main {
                 case 19 -> strandSort();
                 case 20 -> timSort();
                 case 21 -> rBubbleSort();
+                case 22 -> bucketSort();
             }
         } while(op != 22);
     }
@@ -80,6 +81,11 @@ public class Main {
 
     }
 
+    public static void bucketSort() throws IOException {
+        BucketSort sort = new BucketSort(array);
+        sort.ordenar();
+        sort.write();
+    }
     public static void mergeSort() throws IOException {
         MergeSort sort = new MergeSort(array);
         sort.ordenar();
@@ -196,7 +202,7 @@ public class Main {
             sc = new Scanner(new FileInputStream(testcase));
             scFile = new Scanner(new FileInputStream(input));
         } catch(Exception e){
-            System.out.println("Algo paso");
+            System.out.println("ALGO PASO");
         }
         int tam = scFile.nextInt();
         scFile.nextLine();

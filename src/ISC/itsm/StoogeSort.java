@@ -11,6 +11,9 @@ public class StoogeSort extends Array{
     }
 
     void stoogesort(int l, int h) {
+        for(int i = 0; i < l; i++)
+            moves += "\t";
+        moves += stringArray(array, l, h + 1, true);
         if (l >= h)
             return;
 

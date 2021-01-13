@@ -35,6 +35,7 @@ public class RadixSort extends Array{
 
         for (i = 0; i < n; i++)
             array[i] = output[i];
+        moves += stringArray();
     }
 
      public void ordenar() {

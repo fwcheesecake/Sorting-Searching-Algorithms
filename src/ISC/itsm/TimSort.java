@@ -22,6 +22,10 @@ public class TimSort extends Array{
     }
     
     public void insertionSort(int left, int right) {
+        moves += "Pre insertion sort\n";
+        for(int i = 0; i < left; i++)
+            moves += "\t";
+        moves += stringArray(array, left, right + 1, true);
         for (int i = left + 1; i <= right; i++) {
             int temp = array[i];
             int j = i - 1;
@@ -31,6 +35,10 @@ public class TimSort extends Array{
             }
             array[j + 1] = temp;
         }
+        moves += "Post insertion sort\n";
+        for(int i = 0; i < left; i++)
+            moves += "\t";
+        moves += stringArray(array, left, right + 1, true);
     }
 
     public void merge(int l, int m, int r) {

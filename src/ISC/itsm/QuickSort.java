@@ -13,9 +13,13 @@ public class QuickSort extends Array {
     public void quickSort(int ini, int fin){
         if(ini < fin) {
             int p = partir(ini, fin);
+            for(int i = 0; i < ini; i++)
+                moves += "\t";
+            moves += stringArray(array, ini, p, false) +
+                    stringArray(array, p, p + 1, false) +
+                    stringArray(array, p + 1, fin + 1, true);
             quickSort(ini, p - 1);
             quickSort(p + 1, fin);
-
         }
     }
 

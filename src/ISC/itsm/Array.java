@@ -3,6 +3,7 @@ package ISC.itsm;
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Array {
@@ -73,6 +74,17 @@ public class Array {
         out += "]";
         if(endl)
             out += "\n";
+        return out;
+    }
+
+    public String stringArray(ArrayList<Integer> arraylist, boolean endl){
+        if(arraylist.isEmpty())
+            return "[]\n";
+        String out = "[" + arraylist.get(0);
+        for(int i = 1; i < arraylist.size(); i++){
+            out += ",\t" + arraylist.get(i);
+        }
+        out += "]\n";
         return out;
     }
 

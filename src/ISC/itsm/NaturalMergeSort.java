@@ -27,12 +27,12 @@ public class NaturalMergeSort extends Array {
                     d++;
                 }
                 if(d <= D){
-                    moves += "IZQ: " + stringArray(array, 0, i + 1, true);
-                    moves += "DER: " + stringArray(array, i + 1, d + 1, true);
+                    moves += stringArray(array, 0, i + 1, false);
+                    moves += stringArray(array, i + 1, d + 1, true);
 
                     merge(0, i + 1, d + 1);
 
-                    moves += "ARR: " + stringArray(array, 0, d + 1 , true);
+                    moves += stringArray(array, 0, d + 1 , true);
                     moves += "\n";
 
                     ordenado = false;
