@@ -13,9 +13,12 @@ public class MergeSort extends Array {
     public void mergeSort(int ini, int fin){
         if(ini < fin){
             int mid = (ini + fin) / 2;
+            moves += "IZQ: " + stringArray(array, ini, mid + 1, true);
+            moves += "DER: " + stringArray(array, mid + 1, fin + 1, true);
             mergeSort(ini, mid);
             mergeSort(mid + 1, fin);
             merge(ini, mid, fin);
+            moves += "ARR: " + stringArray(array, ini, fin + 1, true);
         }
     }
 

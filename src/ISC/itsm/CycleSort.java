@@ -7,7 +7,6 @@ public class CycleSort extends Array {
     }
 
     public void ordenar(){
-        int writes = 0;
 
         for (int cycle_start = 0; cycle_start <= tam - 2; cycle_start++) {
             int item = array[cycle_start];
@@ -27,8 +26,10 @@ public class CycleSort extends Array {
                 int temp = item;
                 item = array[pos];
                 array[pos] = temp;
-                writes++;
             }
+
+            moves += item + "\t";
+            moves += stringArray();
 
             while (pos != cycle_start) {
                 pos = cycle_start;
@@ -40,11 +41,12 @@ public class CycleSort extends Array {
                 while (item == array[pos])
                     pos += 1;
 
+                moves += item + "\t";
+                moves += stringArray();
                 if (item != array[pos]) {
                     int temp = item;
                     item = array[pos];
                     array[pos] = temp;
-                    writes++;
                 }
             }
         }

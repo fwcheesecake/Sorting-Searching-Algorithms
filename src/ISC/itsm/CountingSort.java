@@ -2,9 +2,6 @@
 package ISC.itsm;
 
 public class CountingSort extends Array {
-    public CountingSort(){
-        super();
-    }
     public CountingSort(int[] array){
         super(array);
     }
@@ -26,11 +23,17 @@ public class CountingSort extends Array {
         for(int i = 0; i < tam; i++)
             counting[array[i] - min]++;
 
+        moves += "Arrego de conteo: \n" + stringArray(counting);
+
         for(int i = 1; i < n; i++)
             counting[i] += counting[i - 1];
 
+        moves += "Arreglo de conteo: \n" + stringArray(counting);
+
         for(int i = 0; i < tam; i++)
             places[--counting[array[i] - min]] = array[i];
+
+        moves += "Arreglo de posiciones: \n" + stringArray(places);
 
         array = places;
     }

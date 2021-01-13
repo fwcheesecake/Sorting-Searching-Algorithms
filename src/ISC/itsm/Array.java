@@ -3,10 +3,17 @@ package ISC.itsm;
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Array {
     int tam;
     int []array;
+
+    String moves = "";
+
+    public int getTam() {
+        return tam;
+    }
 
     public Array(){
         setTam(0);
@@ -21,6 +28,11 @@ public class Array {
     public Array(int[] array){
         setTam(array.length);
         setArray(array);
+        setMoves("Arreglo inicial: \n" + stringArray() + "-----------------------------------------------------------------------------\n");
+    }
+
+    public void setMoves(String moves){
+        this.moves = moves;
     }
 
     public void setArray(int[] array){
@@ -36,6 +48,34 @@ public class Array {
         return array;
     }
 
+    public String stringArray(){
+        String out = "[" + array[0];
+        for(int i = 1; i < tam; i++)
+            out += "\t" + array[i];
+        out += "]\n";
+        return out;
+    }
+
+    public String stringArray(int[] array){
+        String out = "[" + array[0];
+        for(int i = 1; i < array.length; i++)
+            out += "\t" + array[i];
+        out += "]\n";
+        return out;
+    }
+
+    public String stringArray(int[] array, int ini, int fin, boolean endl){
+        if(ini >= fin)
+            return ((endl) ? "\n" : "");
+        String out = "[" + array[ini];
+        for(int i = ini + 1; i < fin; i++)
+            out += "\t" + array[i];
+        out += "]";
+        if(endl)
+            out += "\n";
+        return out;
+    }
+
     public void write() throws IOException{
         String filename = this.getClass().getSimpleName();
         File output = new File("output\\" + filename + ".out");
@@ -46,18 +86,8 @@ public class Array {
         FileWriter wout = new FileWriter(output);
 
         System.out.println(filename + ": ");
-        boolean sorted = true;
-        wout.write("" + array[0] + "\n");
-        for(int i = 1; i < tam; i++) {
-            if(array[i - 1] > array[i]) {
-                sorted = false;
-                wout.write("This: " + array[i] + "\n");
-            } else
-                wout.write("" + array[i] + "\n");
-        }
-
-        wout.write((sorted) ? "ORDENADO" : "ALGO PASO");
-
+        moves += "Arreglo ordenado: \n" + stringArray();
+        wout.write(moves);
         wout.close();
     }
 

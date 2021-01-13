@@ -6,15 +6,16 @@ public class QuickSort extends Array {
         super(array);
     }
 
-    public void ordenar(){
+    public void ordenar() {
         quickSort(0, tam - 1);
     }
 
     public void quickSort(int ini, int fin){
-        if(ini < fin){
+        if(ini < fin) {
             int p = partir(ini, fin);
             quickSort(ini, p - 1);
             quickSort(p + 1, fin);
+
         }
     }
 

@@ -6,7 +6,11 @@ public class HeapSort extends Array{
     }
 
     public void ordenar(){
+        moves += "Construyendo el heap:\n";
         buildHeap();
+        moves += "Heap construido:\n";
+        moves += stringArray();
+        moves += "-------------------------------------------------------------\n";
         for(int i = tam - 1; i > 0; i--){
             swap(i, 0);
             heapify(0, i);
@@ -24,6 +28,7 @@ public class HeapSort extends Array{
             max = right;
 
         if (root != max) {
+            moves += root + "\t<->\t" + max + "\t" + stringArray();
             swap(root, max);
             heapify(max, n);
         }

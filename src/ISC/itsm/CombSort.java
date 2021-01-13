@@ -25,6 +25,7 @@ public class CombSort extends Array {
                     swapped = true;
                 }
             }
+            moves += "Gap: " + gap + "\t" + stringArray();
         }
     }
 }

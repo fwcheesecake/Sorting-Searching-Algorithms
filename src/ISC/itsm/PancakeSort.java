@@ -12,8 +12,12 @@ public class PancakeSort extends Array{
             for(int j = 1; j < i; j++)
                 if(array[max] < array[j])
                     max = j;
+            moves += stringArray(array, 0, max + 1, false) + stringArray(array, max + 1, tam, true);
             voltear(max + 1);
+            moves += stringArray(array, 0, max + 1, false) + stringArray(array, max + 1, tam, true);
             voltear(i);
+            moves += stringArray();
+            moves += "\n";
         }
     }
 

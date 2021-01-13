@@ -19,6 +19,7 @@ public class CocktailSort extends Array {
                     swap(i, i + 1);
                 }
             }
+            moves += "--> " + stringArray();
             if(!swapped)
                 break;
             for(int i = fin; i > ini; i--){
@@ -27,6 +28,7 @@ public class CocktailSort extends Array {
                     swap(i, i - 1);
                 }
             }
+            moves += "<-- " + stringArray();
         }
     }
 }

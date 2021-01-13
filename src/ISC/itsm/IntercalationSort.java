@@ -13,6 +13,7 @@ public class IntercalationSort extends Array {
         if (mid >= 0) System.arraycopy(array, 0, a, 0, mid);
         if (n2 >= 0) System.arraycopy(array, mid, b, 0, n2);
 
+
         InsertionSort as = new InsertionSort(a);
         InsertionSort bs = new InsertionSort(b);
 
@@ -21,19 +22,38 @@ public class IntercalationSort extends Array {
 
         a = as.getArray();
         b = bs.getArray();
-        
+
+        moves += "A: " + stringArray(a);
+        moves += "B: " + stringArray(b);
+
         int i = 0, j = 0;
         int k = 0;
+
+        moves += "C: " + stringArray(array, 0, k, true);
+        moves += "\n";
+
         while(i < mid && j < n2){
+            moves += "A: " + stringArray(a, i, a.length, true);
+            moves += "B: " + stringArray(b, j, b.length, true);
+            moves += "C: " + stringArray(array, 0, k, true);
+            moves += "\n";
             if(a[i] < b[j])
                 array[k++] = a[i++];
             else
                 array[k++] = b[j++];
         }
 
+        moves += "A: " + stringArray(a, i, a.length, true);
+        moves += "B: " + stringArray(b, j, b.length, true);
+        moves += "C: " + stringArray(array, 0, k, true);
+        moves += "\n";
         for(;i < mid; i++)
             array[k++] = a[i];
         for(;j < n2; j++)
             array[k++] = b[j];
+        moves += "A: " + stringArray(a, i, a.length, true);
+        moves += "B: " + stringArray(b, j, b.length, true);
+        moves += "C: " + stringArray(array, 0, k, true);
+        moves += "\n";
     }
 }
