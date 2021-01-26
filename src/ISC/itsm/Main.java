@@ -74,10 +74,41 @@ public class Main {
                 case 21 -> rBubbleSort();
                 case 22 -> bucketSort();
             }
-        } while(op != 22);
+        } while(op != 23);
     }
     
-    public static void buscar(){
+    public static void buscar()throws IOException{
+        String opciones = "Linear search, Binary Search, Hashing";
+        int op;
+        do {
+            op = selectOption(opciones, "Que algoritmo desea usar?");
+            switch (op){
+                case 1 -> linearSearch();
+                case 2 -> binarySearch();
+                case 3 -> hashing();
+            }
+        } while(op != 4);
+    }
+
+    public static void linearSearch() throws IOException{
+        LinearSearch ls = new LinearSearch(array);
+        int x = readInt("Introduce el numero a buscar");
+        ls.buscar(x);
+        ls.write();
+
+    }
+    public static void binarySearch()throws IOException{
+        BinarySearch bs = new BinarySearch(array);
+        int x = readInt("Introduce el numero a buscar");
+        bs.buscar(x);
+        bs.write();
+
+    }
+    public static void hashing()throws IOException{
+        Hashing h = new Hashing(array);
+        int x = readInt("Introduce el numero a buscar");
+        h.buscar(x);
+        h.write();
 
     }
 
